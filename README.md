@@ -56,7 +56,8 @@ This project follows a structured approach to building a secure test environment
 
 ## 📊 Baseline Scan Results
 
-<img width="1915" height="909" alt="image" src="https://github.com/user-attachments/assets/fb25a63d-67f3-4add-9fb9-6d788b43fff0" />
+<img width="1915" height="719" alt="image" src="https://github.com/user-attachments/assets/86384c75-c250-45ac-9f90-fbda12c6c72b" />
+
 
 ## 🛡️ STIG Controls Selected for Automated Remediation
 
