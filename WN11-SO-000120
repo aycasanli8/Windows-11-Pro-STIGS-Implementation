@@ -1,0 +1,29 @@
+# STIG ID: WN11-SO-000120
+
+## 🛡️ Vulnerability Description
+**The SMB server must always perform SMB packet signing.**
+
+SMB packet signing places a digital signature on every packet in the SMB stream. This verifies the origin and authenticity of the data. Without this enforced on the server side, the system is vulnerable to SMB Relay attacks, where an attacker intercepts traffic and relays it to another system to gain unauthorized access.
+
+---
+
+## ⚙️ Remediation Strategy
+
+**PowerShell Implementation Logic:**
+The script modifies the "LanManServer" (Server service) parameters in the registry.
+
+1.  **Registry Targeting:** The script navigates to `HKLM\System\CurrentControlSet\Services\LanManServer\Parameters`.
+2.  **Signature Enforcement:** It identifies the `RequireSecuritySignature` value.
+3.  **Value Update:** The script sets this DWORD to `1`. This mandates that any client attempting to connect to this machine via SMB must support and use packet signing, or the connection is dropped.
+
+[Link to Remediation Script](https://github.com/Aaniket09/STIGS-Implementation-Automation/blob/main/WN11-SO-000120/remediate-WN11-SO-000120.ps1)
+
+---
+
+## 📊 Rescan Verification Report
+
+<img width="1496" height="349" alt="Screenshot 2025-11-26 111451" src="https://github.com/user-attachments/assets/7ebe7bc8-0556-418f-a943-61063fb829c1" />
+
+<img width="2105" height="798" alt="Screenshot 2025-11-26 112448" src="https://github.com/user-attachments/assets/13de0c7f-37f5-4c3e-907c-7e720fbedc73" />
+
+---
