@@ -1,0 +1,29 @@
+# STIG ID: WN11-CC-000270
+
+## 🛡️ Vulnerability Description
+**The RDP client must be prevented from saving passwords.**
+
+If a user saves their credentials in the Remote Desktop Connection client, those credentials are stored on the disk. If an attacker compromises the machine, they can harvest these saved connections to pivot laterally to other servers without needing to crack a password.
+
+---
+
+## ⚙️ Remediation Strategy
+
+**PowerShell Implementation Logic:**
+The script applies a Group Policy restriction via the Registry to disable the "Save Credentials" checkbox in RDP.
+
+1.  **Registry Key Check:** The script looks for `HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services`. It creates the key if missing.
+2.  **Policy Application:** It targets the value `DisablePasswordSaving`.
+3.  **Modification:** The script sets this DWORD to `1`. This greys out the option to save passwords in the RDP client UI and prevents the underlying functionality.
+
+[Link to Remediation Script](https://github.com/Aaniket09/STIGS-Implementation-Automation/blob/main/WN11-CC-000270/remediate-WN11-CC-000270.ps1)
+
+---
+
+## 📊 Rescan Verification Report
+
+<img width="1420" height="432" alt="Screenshot 2025-11-27 112627" src="https://github.com/user-attachments/assets/70788ce5-2eed-4a2e-982c-514070036b35" />
+
+<img width="2108" height="876" alt="Screenshot 2025-11-27 113535" src="https://github.com/user-attachments/assets/a0ea2fb0-908b-4d01-aa5a-bb619b73eed4" />
+
+---
