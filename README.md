@@ -58,3 +58,20 @@ This project follows a structured approach to building a secure test environment
 
 <img width="1915" height="909" alt="image" src="https://github.com/user-attachments/assets/fb25a63d-67f3-4add-9fb9-6d788b43fff0" />
 
+## 🛡️ STIG Controls Selected for Automated Remediation
+
+The STIG findings listed below were flagged as high-priority compliance failures during the initial scan and were remediated using PowerShell-based automation.
+
+| STIG ID | Control Description | Severity | Security Rationale |
+| :--- | :--- | :--- | :--- |
+| [**WN11-CC-000038**](https://github.com/Aaniket09/STIGS-Implementation-Automation/blob/main/WN11-CC-000038/WN11-CC-000038-readme.md) | Disable WDigest authentication | High | Eliminates the risk of plaintext credentials being cached in LSASS, reducing exposure to credential dumping tools such as Mimikatz. |
+| [**WN11-CC-000326**](https://github.com/Aaniket09/STIGS-Implementation-Automation/blob/main/WN11-CC-000326/WN11-CC-000326-readme.md) | Enable PowerShell Script Block Logging | High | Improves detection of malicious or suspicious PowerShell execution, including living-off-the-land attack techniques. |
+| [**WN11-CC-000327**](https://github.com/Aaniket09/STIGS-Implementation-Automation/blob/main/WN11-CC-000327/WN11-CC-000327-readme.md) | Enable PowerShell Transcription | High | Captures full PowerShell session transcripts, providing valuable forensic evidence during investigations. |
+| [**WN11-CC-000345**](https://github.com/Aaniket09/STIGS-Implementation-Automation/blob/main/WN11-CC-000345/WN11-CC-000345-readme.md) | Disable Basic authentication for WinRM | High | Protects against credential exposure by blocking insecure authentication methods commonly abused for lateral movement. |
+| [**WN11-CC-000350**](https://github.com/Aaniket09/STIGS-Implementation-Automation/blob/main/WN11-CC-000350/WN11-CC-000350-readme.md) | Enforce encrypted WinRM traffic | High | Prevents interception or manipulation of remote management sessions over the network. |
+| [**WN11-SO-000120**](https://github.com/Aaniket09/STIGS-Implementation-Automation/blob/main/WN11-SO-000120/WN11-SO-000120-readme.md) | Require SMB server packet signing | High | Mitigates SMB relay and man-in-the-middle attacks by enforcing message integrity. |
+| [**WN11-SO-000100**](https://github.com/Aaniket09/STIGS-Implementation-Automation/blob/main/WN11-SO-000100/WN11-SO-000100-readme.md) | Require SMB client packet signing | High | Strengthens SMB communications by ensuring authentication and integrity on the client side. |
+| [**WN11-CC-000270**](https://github.com/Aaniket09/STIGS-Implementation-Automation/blob/main/WN11-CC-000270/WN11-CC-000270-readme.md) | Prevent RDP client from saving passwords | Medium | Reduces the risk of credential harvesting following host compromise. |
+| [**WN11-CC-000280**](https://github.com/Aaniket09/STIGS-Implementation-Automation/blob/main/WN11-CC-000280/WN11-CC-000280-readme.md) | Force RDP to always prompt for credentials | Medium | Ensures credentials are manually entered, preventing reuse by automated malware. |
+| [**WN11-CC-000310**](https://github.com/Aaniket09/STIGS-Implementation-Automation/blob/main/WN11-CC-000310/WN11-CC-000310-readme.md) | Restrict users from altering installation settings | Medium | Prevents configuration changes that could be leveraged to bypass security controls or weaken system posture. |
+
