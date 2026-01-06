@@ -53,3 +53,8 @@ This project follows a structured approach to building a secure test environment
 1. **Result Evaluation:** Examine failed STIG controls, prioritizing high and medium severity findings.
 2. **Automation:** Apply remediation using custom PowerShell scripts mapped to specific STIG IDs.
 3. **Validation:** Re-scan the system to verify remediation success and confirm compliance improvements.
+
+## 📊 Baseline Scan Results
+
+<img width="1915" height="909" alt="image" src="https://github.com/user-attachments/assets/fb25a63d-67f3-4add-9fb9-6d788b43fff0" />
+
