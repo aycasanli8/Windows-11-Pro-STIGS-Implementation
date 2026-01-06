@@ -1,0 +1,29 @@
+# STIG ID: WN11-CC-000345
+
+## 🛡️ Vulnerability Description
+**The WinRM service must not use Basic authentication.**
+
+Basic authentication sends user credentials across the network in an easily reversible Base64 format. If an attacker intercepts this traffic, they can decode the credentials instantly. Disabling Basic authentication forces the use of stronger, encrypted protocols like Kerberos or Negotiate.
+
+---
+
+## ⚙️ Remediation Strategy
+
+**PowerShell Implementation Logic:**
+This remediation utilizes the Group Policy Registry path to strictly enforce the setting at the policy level, which overrides local configuration.
+
+1.  **Registry Targeting:** The script targets the specific policy key: `HKLM\SOFTWARE\Policies\Microsoft\Windows\WinRM\Service`.
+2.  **Value Configuration:** It identifies or creates the DWORD value named `AllowBasic`.
+3.  **Enforcement:** The script sets this value to `0`. This explicitly configures the Windows Remote Management service to reject any authentication attempts using the insecure "Basic" scheme.
+
+[Link to Remediation Script](https://github.com/Aaniket09/STIGS-Implementation-Automation/blob/main/WN11-CC-000345/remediate-WN11-CC-000345.ps1)
+
+---
+
+## 📊 Rescan Verification Report
+
+<img width="1865" height="339" alt="Screenshot 2025-11-25 094429" src="https://github.com/user-attachments/assets/6e775a02-5c9e-47d1-95dd-a3d37bf30cb4" />
+
+<img width="2097" height="804" alt="Screenshot 2025-11-25 101541" src="https://github.com/user-attachments/assets/d71e0d85-0ab7-4251-bbe8-2371a1819336" />
+
+---
