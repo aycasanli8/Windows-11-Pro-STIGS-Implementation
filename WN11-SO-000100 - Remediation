@@ -3,19 +3,19 @@
     This PowerShell script enforces SMB Packet Signing on the Client (LanmanWorkstation) to verify server identity.
 
 .NOTES
-    Author          : Aniket Agarwal
-    LinkedIn        : linkedin.com/in/aniket-agarwal-0920
-    GitHub          : github.com/Aaniket09
-    Date Created    : 2025-11-27
-    Last Modified   : 2025-11-27
+   Author          : Ayca Sanli
+    LinkedIn        : https://www.linkedin.com/in/ayca-sanli-0489aa163/
+    GitHub          : https://github.com/aycasanli8
+    Date Created    : 2026/01/05
+    Last Modified   : 2026/01/05
     Version         : 1.0
     CVEs            : N/A (Prevents Spoofing/MITM)
     Plugin IDs      : N/A
     STIG-ID         : WN11-SO-000100
 
 .TESTED ON
-    Date(s) Tested  : 2025-02-27
-    Tested By       : Aniket Agarwal
+    Date(s) Tested  : 2026/01/05
+    Tested By       : Ayca Sanli
     Systems Tested  : Windows 11 Pro (24H2)
     PowerShell Ver. : 5.1, 7.4
 
