@@ -1,0 +1,29 @@
+# STIG ID: WN11-SO-000100
+
+## 🛡️ Vulnerability Description
+**The SMB client must always perform SMB packet signing.**
+
+Similar to the server-side requirement, the client (the Windows 11 machine itself) must verify the authenticity of the servers it connects to. If disabled, the client can be tricked into connecting to a rogue SMB server set up by an attacker, leading to credential theft or the delivery of malicious payloads.
+
+---
+
+## ⚙️ Remediation Strategy
+
+**PowerShell Implementation Logic:**
+The script modifies the "LanmanWorkstation" (Workstation service) parameters in the registry.
+
+1.  **Registry Targeting:** The script navigates to `HKLM\System\CurrentControlSet\Services\LanmanWorkstation\Parameters`.
+2.  **Signature Enforcement:** It identifies the `RequireSecuritySignature` value.
+3.  **Value Update:** The script sets this DWORD to `1`. This prevents the Windows 11 client from establishing connections to file shares that do not support packet signing.
+
+[Link to Remediation Script](https://github.com/Aaniket09/STIGS-Implementation-Automation/blob/main/WN11-SO-000100/remediate-WN11-SO-000100.ps1)
+
+---
+
+## 📊 Rescan Verification Report
+
+<img width="1482" height="432" alt="Screenshot 2025-11-27 104319" src="https://github.com/user-attachments/assets/f534594d-1127-4689-b6b0-842346834952" />
+
+<img width="2081" height="875" alt="Screenshot 2025-11-27 111405" src="https://github.com/user-attachments/assets/e8381ec0-ed10-4bfd-9080-4f3acfaa8b34" />
+
+---
