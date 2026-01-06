@@ -1,0 +1,29 @@
+# STIG ID: WN11-CC-000280
+
+## 🛡️ Vulnerability Description
+**The Remote Desktop Session Host must be configured to always prompt for a password upon connection.**
+
+Even if a user has valid credentials, automated malware or an attacker using a hijacked session might try to initiate an RDP connection automatically. Enforcing a password prompt ensures that a human is present and verifies their identity before the session is fully established.
+
+---
+
+## ⚙️ Remediation Strategy
+
+**PowerShell Implementation Logic:**
+The script enforces the "Always prompt for password" policy via the Terminal Services registry key.
+
+1.  **Registry Targeting:** The script accesses `HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services`.
+2.  **Flag Configuration:** It identifies the value `fPromptForPassword`.
+3.  **Enforcement:** The script sets this DWORD to `1`. This overrides any saved credentials or auto-login settings, forcing the Windows login screen to appear every time an RDP session connects.
+
+[Link to Remediation Script](https://github.com/Aaniket09/STIGS-Implementation-Automation/blob/main/WN11-CC-000280/remediate-WN11-CC-000280.ps1)
+
+---
+
+## 📊 Rescan Verification Report
+
+<img width="1578" height="442" alt="Screenshot 2025-11-27 152856" src="https://github.com/user-attachments/assets/46221fe7-da33-497e-af34-2c44622c669e" />
+
+<img width="2095" height="953" alt="Screenshot 2025-11-27 153826" src="https://github.com/user-attachments/assets/8a771547-140b-42e8-a77a-b78b2ed8d7b6" />
+
+---
