@@ -1,0 +1,29 @@
+# STIG ID: WN11-CC-000326
+
+## 🛡️ Vulnerability Description
+**PowerShell Script Block Logging must be enabled.**
+
+Without Script Block Logging, security teams lack visibility into the actual code executed by PowerShell. Attackers often use obfuscated scripts to hide their intent. Enabling this feature forces Windows to log the de-obfuscated code to the event log as it executes, providing critical telemetry for detecting "living-off-the-land" attacks.
+
+---
+
+## ⚙️ Remediation Strategy
+
+**PowerShell Implementation Logic:**
+The remediation script enforces a Group Policy setting via the Registry to ensure logging is active system-wide.
+
+1.  **Path Validation:** The script navigates to `HKLM\SOFTWARE\Policies\Microsoft\Windows\PowerShell\ScriptBlockLogging`. If the key does not exist, the script creates it.
+2.  **Enabling Logging:** It sets the `EnableScriptBlockLogging` DWORD value to `1`.
+3.  **Result:** This forces the PowerShell engine to generate Event ID 4104 in the Event Viewer for all script blocks processed.
+
+[Link to Remediation Script](https://github.com/Aaniket09/STIGS-Implementation-Automation/blob/main/WN11-CC-000326/remediate-WN11-CC-000326.ps1)
+
+---
+
+## 📊 Rescan Verification Report
+
+<img width="1755" height="329" alt="Screenshot 2025-11-24 145006" src="https://github.com/user-attachments/assets/584792bf-136d-4bd8-8b0f-1499f5cb0639" />
+
+<img width="2088" height="742" alt="Screenshot 2025-11-24 150216" src="https://github.com/user-attachments/assets/30905ab3-6e5f-4906-992f-3d44cb77506b" />
+
+---
