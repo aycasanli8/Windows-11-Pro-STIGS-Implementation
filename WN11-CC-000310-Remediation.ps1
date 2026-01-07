@@ -22,7 +22,7 @@
 .USAGE
     Run this script as Administrator.
     Example syntax:
-    PS C:\> .\remediate_WN11-CC-000310.ps1
+    PS C:\> .\WN11-CC-000310-Remediation.ps1
 #>
 
 # Define the Registry path and value details
