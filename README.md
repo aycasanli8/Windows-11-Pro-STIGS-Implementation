@@ -65,7 +65,7 @@ The STIG findings listed below were flagged as high-priority compliance failures
 
 | STIG ID | Control Description | Severity | Security Rationale |
 | :--- | :--- | :--- | :--- |
-| [**WN11-CC-000038**](https://github.com/aycasanli8/Windows-11-Pro-STIGS-Implementation/blob/main/WN11-CC-000038) | Disable WDigest authentication | High | Eliminates the risk of plaintext credentials being cached in LSASS, reducing exposure to credential dumping tools such as Mimikatz. |
+| [**WN11-CC-000038**](https://github.com/aycasanli8/Windows-11-Pro-STIGS-Implementation/blob/main/WN11-CC-000038.md) | Disable WDigest authentication | High | Eliminates the risk of plaintext credentials being cached in LSASS, reducing exposure to credential dumping tools such as Mimikatz. |
 | [**WN11-CC-000326**](https://github.com/aycasanli8/Windows-11-Pro-STIGS-Implementation/blob/main/WN11-CC-000326) | Enable PowerShell Script Block Logging | High | Improves detection of malicious or suspicious PowerShell execution, including living-off-the-land attack techniques. |
 | [**WN11-CC-000327**](https://github.com/aycasanli8/Windows-11-Pro-STIGS-Implementation/blob/main/WN11-CC-000327) | Enable PowerShell Transcription | High | Captures full PowerShell session transcripts, providing valuable forensic evidence during investigations. |
 | [**WN11-CC-000345**](https://github.com/aycasanli8/Windows-11-Pro-STIGS-Implementation/blob/main/WN11-CC-000345) | Disable Basic authentication for WinRM | High | Protects against credential exposure by blocking insecure authentication methods commonly abused for lateral movement. |
